@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { logger } from './logger';
+import { logger } from './logger.js';
 
 describe('logger utility', () => {
   it('formatMemory should format bytes correctly', () => {
