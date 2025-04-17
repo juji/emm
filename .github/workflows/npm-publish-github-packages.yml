@@ -26,7 +26,7 @@ jobs:
         run: npm run build # Add this step if your project requires a build
 
       - name: Run tests
-        run: npm test
+        run: npx vitest run
 
       - name: Publish to npm
         run: npm publish --access public # No need for --access public for unscoped packages

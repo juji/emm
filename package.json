@@ -38,7 +38,6 @@
   "private": true,
   "devDependencies": {
     "@types/bun": "^1.2.9",
-    "@types/archy": "^1.0.4",
     "@types/node": "^20.11.24",
     "typescript": "^5.8.3"
   }
