@@ -1,5 +1,5 @@
 {
-  "name": "etl-memory-monitor",
+  "name": "emm",
   "version": "1.0.0",
   "description": "Advanced memory monitoring and analytics tools for ETL processes",
   "type": "module",
