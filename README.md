@@ -29,8 +29,8 @@ Should run on:
 
 - Node.js >= 18  
 - Bun >= 1.0  
-- Deno >= 1.35  
-- Cloudflare Workers (ESM compatible)
+<!-- - Deno >= 1.35  
+- Cloudflare Workers (ESM compatible) -->
 
 It is made in TypeScript and compiled into JavaScript that can be used with Node.js, Bun, Deno, and Cloudflare Workers.
 
