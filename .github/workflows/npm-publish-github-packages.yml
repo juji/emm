@@ -1,3 +1,7 @@
+# NOTE: To run tests with npm, use: npm run test:node
+# This will build the project and run Node.js tests using the compiled output.
+# NOTE: If you see "TypeError: crypto$2.getRandomValues is not a function" when running tests with npm, it may be due to a Node.js version or polyfill issue. Bun and pnpm environments may not have this problem. Consider using Bun or pnpm for testing, or ensure your Node.js environment provides a Web Crypto API polyfill.
+
 name: Publish to npm
 
 on:

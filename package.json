@@ -13,7 +13,11 @@
   "scripts": {
     "build": "tsc",
     "dev": "tsc --watch",
-    "test": "npx jest",
+    "test": "npm run test:npm",
+    "test:npm": "npm run build && npx mocha ./dist/utils/logger.test.node.js",
+    "test:node": "npm run build && node --test dist/**/*.test.js",
+    "test:bun": "bun test src/",
+    "test:deno": "deno test src/",
     "start": "bun run dist/bin/run.js",
     "prepare": "npm run build"
   },
