@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# ETL Memory Monitor Analyzer - Quick access alias
+# emma = "etl memory monitor a" (a = analyze); there will probably be a.1 or b versions
+# Shorthand for "emm analyze" - ETL Memory Monitor Analyzer
+
+echo "ETL Memory Monitor - A"
+# Just pass all arguments to the analyze command of emm
+"$(dirname "$0")/emm" analyze "$@"

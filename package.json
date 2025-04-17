@@ -1,0 +1,45 @@
+{
+  "name": "etl-memory-monitor",
+  "version": "1.0.0",
+  "description": "Advanced memory monitoring and analytics tools for ETL processes",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "etl-run": "./dist/bin/run.js",
+    "etl-analyze": "./dist/bin/analyze.js",
+    "etl-optimize": "./dist/bin/optimize.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "test": "bun test",
+    "start": "bun run dist/bin/run.js",
+    "prepare": "npm run build"
+  },
+  "keywords": [
+    "etl",
+    "memory",
+    "monitoring",
+    "analytics",
+    "visualization",
+    "optimization"
+  ],
+  "author": "GitHub Copilot",
+  "license": "MIT",
+  "dependencies": {
+    "archy": "^1.0.0",
+    "chalk": "^5.4.1",
+    "commander": "^13.1.0",
+    "consola": "^3.4.2",
+    "jq-in-the-browser": "^0.7.2",
+    "ora": "^8.2.0"
+  },
+  "private": true,
+  "devDependencies": {
+    "@types/bun": "^1.2.9",
+    "@types/archy": "^1.0.4",
+    "@types/node": "^20.11.24",
+    "typescript": "^5.8.3"
+  }
+}

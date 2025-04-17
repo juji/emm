@@ -1,0 +1,118 @@
+#!/bin/bash
+
+# ETL Memory Monitor - Command Entrypoint
+# This script provides easy access to ETL memory monitor commands
+# Usage: emm [command] [options]
+#   emm run "node script.js" - Run the ETL memory monitor
+#   emm analyze - Analyze memory usage
+#   emm optimize - Get optimization suggestions
+#   emm help - Show this help message
+#   emm script.js - Directly run a script with monitoring
+
+# Define the help function
+show_help() {
+  echo "
+      .--------.
+     | [ MEM ] |
+     |  CHIP   |
+      '--------'
+
+  ETL Memory Monitor - Soar high, keep memory usage in sight!
+  A lightweight, TypeScript-based memory monitoring tool for ETL processes
+
+  I am GitHub Copilot and I created this. Also that's a kite
+  
+  "
+  echo "Usage: emm [command] [options]"
+  echo ""
+  echo "Commands:"
+  echo "  run, r       Run ETL job with memory monitoring"
+  echo "               Example: emm run \"node your-script.js\""
+  echo "  analyze, a   Analyze memory usage from logs"
+  echo "  optimize, o  Get memory optimization suggestions"
+  echo "  help, h      Show this help message"
+  echo "  script.js    Directly run a JavaScript file with monitoring"
+  echo "  script.ts    Directly run a TypeScript file with monitoring"
+  echo ""
+  echo "Options:"
+  echo "  --light      Use lightweight monitoring (less CPU intensive, checks only at start/mid/end)"
+  echo "  --silent     Minimal console output"
+  echo ""
+  echo "For command-specific help, run: emm [command] --help"
+}
+
+# Base directory of the project
+BASE_DIR="$(dirname "$(dirname "$0")")"
+TS_DIR="$BASE_DIR/src/bin"
+
+# Determine whether to use ts-node or compiled JS
+if [ -d "$BASE_DIR/dist" ] && [ -f "$BASE_DIR/dist/bin/run.js" ]; then
+  # Use compiled JS if available
+  CMD_DIR="$BASE_DIR/dist/bin"
+  RUNNER="node"
+else
+  # Use ts-node for development
+  CMD_DIR="$BASE_DIR/src/bin"
+  RUNNER="npx ts-node"
+fi
+
+# Show help if no arguments or help command
+if [ -z "$1" ] || [ "$1" = "help" ] || [ "$1" = "h" ] || [ "$1" = "--help" ] || [ "$1" = "-h" ]; then
+  show_help
+  exit 0
+fi
+
+# Check for lightweight mode
+EXTRA_ARGS=""
+for arg in "$@"; do
+  if [ "$arg" = "--light" ]; then
+    EXTRA_ARGS="$EXTRA_ARGS --check-interval 0"
+  fi
+done
+
+# Determine if the first argument is a known command or a script to run
+is_command=false
+case "$1" in
+  run|r|analyze|a|optimize|o)
+    is_command=true
+    ;;
+esac
+
+# If the first argument is not a known command and ends with .js, .ts, or .mjs
+# assume it's a script to run
+if [ "$is_command" = false ]; then
+  if [[ "$1" == *.js || "$1" == *.ts || "$1" == *.mjs ]]; then
+    # Determine how to run the script based on extension
+    if [[ "$1" == *.ts ]]; then
+      SCRIPT_RUNNER="npx ts-node"
+    else
+      SCRIPT_RUNNER="node"
+    fi
+    
+    # Run the monitor with this script
+    $RUNNER "$CMD_DIR/run.ts" "$SCRIPT_RUNNER $1 ${@:2}" $EXTRA_ARGS
+    exit $?
+  else
+    # Unknown command
+    echo "Unknown command or file: $1"
+    echo "Available commands: run, analyze, optimize, help"
+    echo "Or specify a .js or .ts script to run"
+    exit 1
+  fi
+fi
+
+# Process commands
+case "$1" in
+  run|r)
+    shift
+    $RUNNER "$CMD_DIR/run.ts" "$@" $EXTRA_ARGS
+    ;;
+  analyze|a)
+    shift
+    $RUNNER "$CMD_DIR/analyze.ts" "$@"
+    ;;
+  optimize|o)
+    shift
+    $RUNNER "$CMD_DIR/optimize.ts" "$@"
+    ;;
+esac
