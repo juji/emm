@@ -1,0 +1,45 @@
+{
+  "compilerOptions": {
+    /* Base Options: */
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "target": "ESNext", // Target modern JavaScript features
+    "allowJs": true,
+    "resolveJsonModule": true,
+    "moduleDetection": "force",
+    "isolatedModules": true, // Required by some tools like Babel or SWC
+
+    /* Strictness */
+    "strict": true,
+    "noUncheckedIndexedAccess": true, // More safety with array/object access
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+
+    /* If NOT transpiling with tsconfig.json, ensure imports are type-only */
+    // "verbatimModuleSyntax": true, // Use `import type` for types
+
+    /* If your code runs in the DOM: */
+    // "lib": ["esnext", "dom", "dom.iterable"],
+
+    /* If your code doesn't run in the DOM: */
+    "lib": ["ESNext"],
+
+    /* Module Resolution Options */
+    "module": "ESNext", // Use modern ES modules
+    "moduleResolution": "Bundler", // Align with modern bundlers like Bun/Vite/esbuild
+    // "baseUrl": ".", // Optional: Base directory for non-relative imports
+    // "paths": {}, // Optional: Path mapping
+
+    /* Output Options */
+    "outDir": "./dist", // Output directory for compiled JS (if compiling)
+    "rootDir": "./src", // Root directory of source files
+
+    /* Type Definitions */
+    "types": [
+      "bun-types", // Include Bun's specific types
+      "node" // Include Node.js types for globals like process and console
+    ]
+  },
+  "include": ["src/**/*"], // Include all files in the src directory
+  "exclude": ["node_modules", "dist"] // Exclude node_modules and the output directory
+}

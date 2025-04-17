@@ -1,12 +1,18 @@
 # emm
 
-A placeholder
+```ascii
+ ______ ______ ______
+|      |      |      |
+|  ----|  ----|  ----|
+|______|______|______| 
+```
 
 **emm** (ETL Memory Monitor)  
 A cli app to monitor memory.
 It should run on nodejs bun and deno and cloudflare
 
 The name was choosen by Github Copilot.
+and was re-written by juji.
 
 ## Installation
 
@@ -34,12 +40,30 @@ Should run on:
 
 It is made in TypeScript and compiled into JavaScript that can be used with Node.js, Bun, Deno, and Cloudflare Workers.
 
-## Usagezq
+## Usage
+
+**Node.js (via npx):**
 
 ```bash
-npx emm asdf.js
-bunx emm asdf.ts
-# deno
+npx emm <your-script.js>
+```
+
+**Bun (via bunx):**
+
+```bash
+bunx emm <your-script.ts>
+```
+
+**Deno:**
+
+Deno can run the TypeScript source directly or the published package using `npm:` specifiers.
+
+```bash
+# Run from source (assuming you cloned the repo)
+deno run --allow-read --allow-run --allow-env src/index.ts <your-script.js>
+
+# Run published package (replace <version> with the actual version)
+deno run --allow-read --allow-run --allow-env npm:emm@<version> <your-script.js>
 ```
 
 ### Programmatic API
