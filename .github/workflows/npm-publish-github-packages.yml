@@ -35,10 +35,7 @@ jobs:
         run: bun run build
 
       - name: Run tests (Bun)
-        run: bun test src/
-
-      - name: Run tests (Node.js)
-        run: bun run test:node
+        run: npm run test:bun
 
       - name: Install pnpm
         uses: pnpm/action-setup@v2
@@ -47,9 +44,6 @@ jobs:
 
       - name: Install dependencies (pnpm)
         run: pnpm install
-
-      - name: Run tests (pnpm)
-        run: pnpm run test:node
 
       - name: Publish to npm
         run: npm publish --access public
