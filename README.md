@@ -1,73 +1,54 @@
 # emm
 
 **emm** (ETL Memory Monitor)  
-Advanced memory monitoring and analytics tools for ETL processes.
+A cli app to monitor memory.
+It should run on nodejs bun and deno and cloudflare
 
-## Features
-
-- Real-time memory usage monitoring for ETL jobs
-- Memory data analysis and reporting
-- Automated optimization suggestions
-- Unified logging utility
-- CLI and programmatic API
+The name was choosen by Github Copilot.
 
 ## Installation
 
 ```bash
+# global
+npm install --global emm
+
+# local
 npm install emm
-# or, for local development
-npm run build
 ```
+
+It will execute the specified file, measure its RAM usage in real time, and output to stdout.
+It will read it's environment. if it's a bash, or zsh or windows.
+It has the option to write file to, a customizable location.
+It has a help option.
+It 
+
+## Requirements
+
+- Node.js >= 18  
+- Bun >= 1.0  
+- Deno >= 1.35  
+- Cloudflare Workers (ESM compatible)
+
+> The toolkit is designed to work in modern JavaScript runtimes that support ES modules.
+
+It is made in TypeScript and compiled into JavaScript that can be used with Node.js, Bun, Deno, and Cloudflare Workers.
 
 ## Usage
 
+```bash
+npx emm asdf.js
+bunx emm asdf.ts
+```
+
 ### Programmatic API
 
-```js
-import emm from 'emm';
+```ts
+import emm, type { EmmOptions } from 'emm';
 
-// Monitor memory usage
-const stats = await emm.monitor();
-console.log('Memory stats:', stats);
+// what can it do here?
 
-// Analyze memory data
-const analysis = emm.analyze(stats);
-console.log('Analysis:', analysis);
-
-// Get optimization suggestions
-const suggestions = emm.optimize(analysis);
-console.log('Suggestions:', suggestions);
-
-// Log a custom message
-emm.log.info('ETL memory monitoring complete.');
+const stats = await emm(file: string, options?: EmmOptions);
 ```
-
-Or use named imports:
-
-```js
-import { memoryMonitor, memoryAnalyzer, optimizationSuggester, logger } from 'emm';
-
-const stats = await memoryMonitor();
-const analysis = memoryAnalyzer(stats);
-const suggestions = optimizationSuggester(analysis);
-logger.info('Done!');
-```
-
-### CLI Usage
-
-After building, you can use the CLI tools:
-
-```bash
-etl-run         # Run memory monitoring
-etl-analyze     # Analyze memory data
-etl-optimize    # Get optimization suggestions
-```
-
-## Scripts
-
-- `npm run build` – Compile TypeScript to JavaScript
-- `npm run dev` – Watch mode for development
-- `npm test` – Run tests (see package.json for details)
 
 ## License
 
@@ -75,6 +56,6 @@ MIT
 
 ---
 
-*Advanced memory monitoring for robust ETL workflows.*
+
 
 
