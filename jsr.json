@@ -1,0 +1,9 @@
+{
+  "name": "emm",
+  "version": "1.0.0",
+  "exports": "./mod.ts",
+  "files": ["src/", "README.md"],
+  "description": "ETL Memory Monitor: memory monitoring and analytics tools for ETL processes, compatible with Deno, Bun, and Node.js.",
+  "keywords": ["etl", "memory", "monitor", "deno", "bun", "node"],
+  "repository": "https://github.com/yourusername/emm"
+}
