@@ -29,6 +29,7 @@ jobs:
         run: npm test
 
       - name: Publish to npm
-        run: npm publish # No need for --access public for unscoped packages
+        run: npm publish --access public # No need for --access public for unscoped packages
+        # why make sometthing less, when you can future proof
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
