@@ -23,20 +23,21 @@ It has a help option.
 
 ## Requirements
 
+Should run on:
+
 - Node.js >= 18  
 - Bun >= 1.0  
 - Deno >= 1.35  
 - Cloudflare Workers (ESM compatible)
 
-> The toolkit is designed to work in modern JavaScript runtimes that support ES modules.
-
 It is made in TypeScript and compiled into JavaScript that can be used with Node.js, Bun, Deno, and Cloudflare Workers.
 
-## Usage
+## Usagezq
 
 ```bash
 npx emm asdf.js
 bunx emm asdf.ts
+# deno
 ```
 
 ### Programmatic API
@@ -53,7 +54,7 @@ const stats = await emm(file: string, options?: EmmOptions);
 
 MIT
 
----
+
 
 
 
