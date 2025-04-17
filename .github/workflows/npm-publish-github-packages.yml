@@ -13,23 +13,41 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
+      - name: Set up Bun
+        uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest
+
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '16'
+          node-version: '20'
           registry-url: 'https://registry.npmjs.org'
 
-      - name: Install dependencies
-        run: npm ci
+      - name: Install dependencies (Bun)
+        run: bun install
 
-      - name: Build project
-        run: npm run build # Add this step if your project requires a build
+      - name: Build project (Bun)
+        run: bun run build
 
-      - name: Run tests
-        run: npm test
+      - name: Run tests (Bun)
+        run: bun test src/
+
+      - name: Run tests (Node.js)
+        run: bun run test:node
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
+      - name: Install dependencies (pnpm)
+        run: pnpm install
+
+      - name: Run tests (pnpm)
+        run: pnpm run test:node
 
       - name: Publish to npm
-        run: npm publish --access public # No need for --access public for unscoped packages
-        # why make sometthing less, when you can future proof
+        run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
