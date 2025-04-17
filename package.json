@@ -44,6 +44,8 @@
     "@types/bun": "^1.2.9",
     "@types/jest": "^29.5.14",
     "@types/node": "^20.11.24",
+    "@types/sinon": "^17.0.4",
+    "sinon": "^20.0.0",
     "ts-jest": "^29.3.2",
     "typescript": "^5.8.3"
   }
