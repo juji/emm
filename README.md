@@ -20,7 +20,6 @@ It will execute the specified file, measure its RAM usage in real time, and outp
 It will read it's environment. if it's a bash, or zsh or windows.
 It has the option to write file to, a customizable location.
 It has a help option.
-It 
 
 ## Requirements
 
