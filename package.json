@@ -1,44 +1,16 @@
 {
   "name": "emm",
-  "version": "1.0.0",
-  "description": "ETL Memory Monitor: Memory monitoring and printer for your js/ts script. Works on Node.js, Bun, Deno, and Cloudflare.",
+  "version": "0.0.1",
   "type": "module",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "bin": {
-    "emm": "./dist/bin/emm.js"
-  },
   "scripts": {
-    "build": "tsc",
-    "postbuild": "echo 'Build deno and build npm!'",
-    "dev": "tsc --watch",
-    "test": "npm run build && node --test dist/**/*.test.js",
-    "start": "bun run dist/bin/emm.js",
-    "prepare": "npm run build"
-  },
-  "keywords": [
-    "memory",
-    "monitoring",
-    "etl",
-    "typescript",
-    "nodejs",
-    "bun",
-    "deno",
-    "cloudflare"
-  ],
-  "author": "",
-  "license": "MIT",
-  "engines": {
-    "node": ">=18.0.0"
+    "dev": "bun run src/dev/mem-check.ts"
   },
   "dependencies": {
-    "prettier": "^3.5.3",
-    "chalk": "^4.1.2"
-  },
-  "devDependencies": {
-    "typescript": "^5.0.0"
+    "chalk": "^5.4.1"
   },
   "files": [
-    "src/test.ts"
+    "src/dev/mem-check.ts",
+    "src/test.ts",
+    "src/run-and-report.ts"
   ]
 }
