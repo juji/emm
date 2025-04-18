@@ -17,5 +17,18 @@ const monitorInterval = argv.interval as number;
 console.log(`Executing file: ${fileToExecute}`);
 console.log(`Monitoring interval: ${monitorInterval}ms`);
 
+// create a creative here
+// output to the user, with a nice header
+console.log(`
+  ______ ______ ______
+ |      |      |      |
+ |  ----|  ----|  ----|
+ |______|______|______|
+ ${'emm'} - ETL Memory Monitor
+
+  just being
+`);
+
+
 // TODO: Implement file execution logic (e.g., using Bun.spawn)
 // TODO: Implement memory monitoring logic (e.g., using setInterval and process.memoryUsage)
