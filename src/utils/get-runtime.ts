@@ -10,7 +10,7 @@ export function getRuntime(): Runtime {
     return 'deno';
   }
   // @ts-ignore - Bun is a global in Bun
-  if (typeof Bun !== 'undefined' || typeof process !== 'undefined' && process.versions?.bun) {
+  if (typeof Bun !== 'undefined' || (typeof process !== 'undefined' && process.versions?.bun)) {
     return 'bun';
   }
   if (typeof process !== 'undefined' && process.versions?.node) {

@@ -20,6 +20,11 @@ export function configureYargs() {
       type: 'number',
       default: 1000,
     })
+    .option('out', {
+      describe: 'Output file to write results to (if not specified, results are echoed to stdout)',
+      type: 'string',
+      demandOption: false,
+    })
     .option('help', { // Define the help option manually
       alias: 'h',
       describe: 'Show help',

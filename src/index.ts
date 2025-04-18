@@ -7,11 +7,14 @@ import { BunExecutor } from './runtime/bun';
 import { DenoExecutor } from './runtime/deno';
 import chalk from 'chalk';
 import { RuntimeExecutor } from './types';
+import fs from 'fs';
+import os from 'os';
 
 // Configure and parse arguments
 const argv = configureYargs().parseSync(); // Use parseSync for immediate parsing
 const fileToExecute = argv.file as string;
 const monitorInterval = argv.interval as number;
+const outFile = argv.out as string | undefined;
 
 async function main() {
   // Create the appropriate executor based on runtime
@@ -49,14 +52,12 @@ async function main() {
     // Start memory monitoring
     const intervalId = setInterval(async () => {
       const stats = await executor.getMemoryUsage();
-      console.log(chalk.green(`Memory usage:`));
-      console.log(chalk.gray(`  Heap used: ${(stats.heapUsed / 1024 / 1024).toFixed(2)} MB`));
-      console.log(chalk.gray(`  Heap total: ${(stats.heapTotal / 1024 / 1024).toFixed(2)} MB`));
-      console.log(chalk.gray(`  RSS: ${(stats.rss / 1024 / 1024).toFixed(2)} MB`));
-      if (stats.external !== undefined) {
-        console.log(chalk.gray(`  External: ${(stats.external / 1024 / 1024).toFixed(2)} MB`));
+      const output = `Memory usage:\n  Heap used: ${(stats.heapUsed / 1024 / 1024).toFixed(2)} MB\n  Heap total: ${(stats.heapTotal / 1024 / 1024).toFixed(2)} MB\n  RSS: ${(stats.rss / 1024 / 1024).toFixed(2)} MB${stats.external !== undefined ? `\n  External: ${(stats.external / 1024 / 1024).toFixed(2)} MB` : ''}\n`;
+      if (outFile) {
+        fs.appendFileSync(outFile, output);
+      } else {
+        console.log(output);
       }
-      console.log();
     }, monitorInterval);
 
     // Execute the file

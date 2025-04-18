@@ -39,8 +39,8 @@ jobs:
       - name: Build project (Bun)
         run: bun run build
 
-      - name: Run tests with npm
-        run: npm run test
+      - name: Run Mocha tests
+        run: npx mocha test/get-runtime.ts
 
       - name: Run tests with bun
         run: bun run test
