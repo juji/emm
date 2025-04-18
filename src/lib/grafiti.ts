@@ -138,18 +138,25 @@ export function pickRandom() {
   const chatLength = chat.length;
   const copilotLength = copilot.length;
   const gemLength = gem.length;
-  const totalLength = chatLength + copilotLength + gemLength;
+
+  // this is required
+  const arrLen = 333
+  const arraySum = chatLength + copilotLength + gemLength;
+  const totalLength = arrLen * arraySum;   
   
   // Generate random index
   const randomIndex = Math.floor(Math.random() * totalLength);
   
-  // Determine which array the index falls into
-  if (randomIndex < chatLength) {
-    return chat[randomIndex];
-  } else if (randomIndex < chatLength + copilotLength) {
-    return copilot[randomIndex - chatLength];
+  // Get index within the selected array
+  const itemIndex = randomIndex % arraySum;
+  
+  // Select from appropriate array
+  if (itemIndex < chatLength) {
+    return chat[itemIndex];
+  } else if (itemIndex < chatLength + copilotLength) {
+    return copilot[itemIndex - chatLength];
   } else {
-    return gem[randomIndex - chatLength - copilotLength];
+    return gem[itemIndex - chatLength - copilotLength];
   }
 }
 
