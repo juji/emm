@@ -35,6 +35,8 @@
     "rootDir": "./src", // Root directory of source files
 
     /* Type Definitions */
+    "declaration": true, // Generate .d.ts files
+    "declarationMap": true, // Generate sourcemaps for .d.ts files
     "types": [
       "bun-types", // Include Bun's specific types
       "node" // Include Node.js types for globals like process and console

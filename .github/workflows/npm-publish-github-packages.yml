@@ -27,6 +27,11 @@ jobs:
         with:
           node-version: '20'
           registry-url: 'https://registry.npmjs.org'
+      
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
 
       - name: Install dependencies (Bun)
         run: bun install
@@ -39,11 +44,6 @@ jobs:
 
       - name: Run tests with bun
         run: bun run test
-
-      - name: Install pnpm
-        uses: pnpm/action-setup@v2
-        with:
-          version: 8
 
       - name: Install dependencies (pnpm)
         run: pnpm install

@@ -1,17 +1,27 @@
 {
-  "name": "emm",
+  "name": "@emm/cli",
   "version": "0.0.1",
   "type": "module",
   "bin": {
     "emm": "./dist/index.js"
   },
   "scripts": {
-    "dev": "bun run src/dev/mem-check.ts",
+    "clean": "rm -rf dist",
+    "prebuild": "npm run clean",
     "build": "tsc",
+    "build:watch": "tsc --watch",
+    "type-check": "tsc --noEmit",
+    "dev": "bun run src/dev/mem-check.ts src/dev/mem-check.ts",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint .",
     "format": "prettier --write .",
-    "prepare": "bun run build"
+    "prepare": "npm run build",
+    "prepublishOnly": "npm run type-check && npm run lint && npm test",
+    "preversion": "npm run lint",
+    "version": "npm run format && git add -A src",
+    "postversion": "git push && git push --tags",
+    "prepublish:jsr": "npm run build",
+    "publish:jsr": "jsr publish"
   },
   "dependencies": {
     "chalk": "^5.4.1",
@@ -22,17 +32,25 @@
   "exports": {
     ".": {
       "import": "./dist/index.js",
-      "types": "./dist/index.d.ts"
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.js"
     }
   },
   "devDependencies": {
-    "@clack/prompts": "^0.10.1",
     "@types/bun": "^1.2.10",
     "@types/deno": "^2.2.0",
     "@types/node": "^22.14.1",
     "@types/yargs": "^17.0.33",
     "@typescript-eslint/eslint-plugin": "^8.30.1",
     "@typescript-eslint/parser": "^8.30.1",
-    "typescript": "^5.8.3"
+    "typescript": "^5.8.3",
+    "@jsr/latest": "npm:@jspm/generator@^1.0.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://npm.jsr.io"
+  },
+  "jsr": {
+    "namespace": "emm"
   }
 }
