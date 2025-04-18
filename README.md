@@ -1,4 +1,6 @@
-# emm - ETL Memory Monitor
+emm - Your Friendly ETL Memory Monitor
+
+# emm - Your Friendly ETL Memory Monitor
 
 [![NPM version](https://img.shields.io/npm/v/emm.svg)](https://npmjs.org/package/emm)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -10,26 +12,29 @@
 |______|______|______|
 ```
 
-**emm** is a command-line utility designed to execute a specified script and monitor its memory usage over time. It's built to be compatible with popular JavaScript runtimes like Node.js, Bun, and Deno.
+Hey there! Welcome to **emm**, your go-to tool for keeping an eye on memory usage while running scripts. Whether you're using Node.js, Bun, or Deno, we've got you covered. Oh, and by the way, that cool ASCII art up there? Totally made by GitHub Copilot. 😎
 
-The ASCII art above represents memory blocks, symbolizing the tool's memory monitoring functionality. (Created by GitHub Copilot)
+## What is emm?
 
-## Requirements
+Think of **emm** as your script's personal trainer. It runs your script and keeps track of how much memory it's using over time. Perfect for debugging, optimizing, or just satisfying your curiosity.
 
-`emm` aims to run on the following environments:
+<!-- Also emm is the name git choose -->
 
-*   **Node.js:** >= v18.0.0
-*   **Bun:** >= v1.0.0
-*   **Deno:** >= v1.35.0 (Requires `--allow-read`, `--allow-run`, `--allow-env` permissions)
-*   _(Cloudflare Workers support is experimental or planned)_
+## What Do You Need?
 
-It is developed in TypeScript and distributed as JavaScript.
+To use **emm**, make sure you're running one of these:
 
-## Installation
+- **Node.js:** v18.0.0 or higher
+- **Bun:** v1.0.0 or higher
+- **Deno:** v1.35.0 or higher (you'll need `--allow-read`, `--allow-run`, and `--allow-env` permissions)
 
-You can install `emm` globally or use it directly with `npx`, `bunx`, or `deno run`.
+Cloudflare Workers support? It's in the works (pun intended).
 
-**Global Installation:**
+## How to Install
+
+You can install **emm** globally or just use it on the fly. Here's how:
+
+### Global Installation
 
 ```bash
 npm install --global emm
@@ -37,7 +42,7 @@ npm install --global emm
 bun install --global emm
 ```
 
-**Local Installation (in your project):**
+### Local Installation (for your project)
 
 ```bash
 npm install emm
@@ -45,54 +50,54 @@ npm install emm
 bun add emm
 ```
 
-## Usage
+### No Installation? No Problem!
 
-Execute your script using `emm` followed by the path to the file.
+Use it directly with `npx`, `bunx`, or `deno run`.
 
-**Using `npx` (Node.js):**
+## How to Use It
+
+Running **emm** is super simple. Just point it to your script and let it do its thing.
+
+### Node.js (with `npx`):
 
 ```bash
 npx emm <your-script.js> [options]
 ```
 
-**Using `bunx` (Bun):**
+### Bun (with `bunx`):
 
 ```bash
 bunx emm <your-script.ts> [options]
 ```
 
-**Using `deno run` (Deno):**
+### Deno:
 
 ```bash
-# Run published package from npm (replace <version> if needed)
 deno run --allow-read --allow-run --allow-env npm:emm <your-script.js> [options]
-
-# Run from local source (if cloned)
-# deno run --allow-read --allow-run --allow-env src/index.ts <your-script.js> [options]
 ```
 
-**Using Global Install:**
+### Installed Globally:
 
 ```bash
 emm <your-script.js> [options]
 ```
 
-### Options
+## Options You Can Use
 
-*   `<file>`: (Required) The path to the script file you want to execute and monitor.
-*   `-i, --interval <milliseconds>`: The interval (in milliseconds) at which memory usage should be checked. (Default: `1000`)
-*   `-h, --help`: Show the help message.
-*   `-v, --version`: Show the version number.
+- `<file>`: (Required) Path to the script you want to monitor.
+- `-i, --interval <milliseconds>`: How often to check memory usage (default: 1000ms).
+- `-h, --help`: Show help.
+- `-v, --version`: Show version.
 
-**Example with options:**
+### Example:
 
 ```bash
 npx emm ./my-heavy-script.js --interval 500
 ```
 
-## Programmatic API
+## Programmatic API (Coming Soon)
 
-_(Note: The programmatic API is currently under development or may have limited functionality.)_
+Want to use **emm** in your code? We're working on it! Here's a sneak peek:
 
 ```typescript
 import emm, { type EmmOptions } from 'emm';
@@ -102,12 +107,17 @@ import emm, { type EmmOptions } from 'emm';
 // console.log(stats);
 ```
 
-Refer to the source code for potential future programmatic usage details.
+Stay tuned for updates!
+
+---
+
+If you have suggestions, improvements, or spot something that could be better, feel free to open a pull request! We love contributions and friendly feedback. 😊
 
 ## License
 
-[MIT](./LICENSE)
+MIT License.
 
+---
 
 
 
