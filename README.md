@@ -12,6 +12,8 @@
 
 **emm** is a command-line utility designed to execute a specified script and monitor its memory usage over time. It's built to be compatible with popular JavaScript runtimes like Node.js, Bun, and Deno.
 
+The ASCII art above represents memory blocks, symbolizing the tool's memory monitoring functionality. (Created by GitHub Copilot)
+
 ## Requirements
 
 `emm` aims to run on the following environments:

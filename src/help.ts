@@ -37,7 +37,7 @@ export function configureYargs() {
       }
       console.log(`
         
-        `)
+`)
       process.exit(1);
     });
 }
