@@ -12,7 +12,7 @@
     "build:watch": "tsc --watch",
     "type-check": "tsc --noEmit",
     "dev": "bun run src/dev/mem-check.ts src/dev/mem-check.ts",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "bun test || exit 1",
     "lint": "eslint .",
     "format": "prettier --write .",
     "prepare": "npm run build",
@@ -37,15 +37,17 @@
     }
   },
   "devDependencies": {
+    "@jsr/latest": "npm:@jspm/generator@^1.0.0",
     "@types/bun": "^1.2.10",
     "@types/deno": "^2.2.0",
+    "@types/mocha": "^10.0.10",
     "@types/node": "^22.14.1",
     "@types/yargs": "^17.0.33",
     "@typescript-eslint/eslint-plugin": "^8.30.1",
     "@typescript-eslint/parser": "^8.30.1",
-    "typescript": "^5.8.3",
-    "@jsr/latest": "npm:@jspm/generator@^1.0.0",
-    "mocha": "^10.0.0"
+    "mocha": "^10.0.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
   },
   "publishConfig": {
     "access": "public",

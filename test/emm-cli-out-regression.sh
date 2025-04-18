@@ -17,3 +17,6 @@ if ! node "$TEST_SCRIPT" | grep -q 'asdf'; then
   echo "Test script did not output expected string."
   exit 1
 fi
+
+echo 'oklah'
+

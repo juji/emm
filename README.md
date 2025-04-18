@@ -1,3 +1,5 @@
+-- not done --
+
 emm - Your Friendly ETL Memory Monitor
 
 # emm - Your Friendly ETL Memory Monitor
@@ -93,6 +95,14 @@ emm <your-script.js> [options]
 
 ```bash
 npx emm ./my-heavy-script.js --interval 500
+```
+
+## Running Tests
+
+To run all TypeScript tests:
+
+```
+npm test
 ```
 
 ## Programmatic API (Coming Soon)
