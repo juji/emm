@@ -1,11 +1,11 @@
--- not done --
-
-emm - Your Friendly ETL Memory Monitor
-
 # emm - Your Friendly ETL Memory Monitor
 
 [![NPM version](https://img.shields.io/npm/v/emm.svg)](https://npmjs.org/package/emm)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+These are words created by github copilot, maybe just to make you smile, and wonder, and,, idon't know.. anything
+
+github copilot made these:
 
 ```ascii
  ______ ______ ______
@@ -14,11 +14,7 @@ emm - Your Friendly ETL Memory Monitor
 |______|______|______|
 ```
 
-Hey there! Welcome to **emm**, your go-to tool for keeping an eye on memory usage while running scripts. Whether you're using Node.js, Bun, or Deno, we've got you covered. Oh, and by the way, that cool ASCII art up there? Totally made by GitHub Copilot. 😎
-
-## What is emm?
-
-Think of **emm** as your script's personal trainer. It runs your script and keeps track of how much memory it's using over time. Perfect for debugging, optimizing, or just satisfying your curiosity.
+**emm** is a tool to track ram usage
 
 <!-- Also emm is the name git choose -->
 
@@ -31,6 +27,7 @@ To use **emm**, make sure you're running one of these:
 - **Deno:** v1.35.0 or higher (you'll need `--allow-read`, `--allow-run`, and `--allow-env` permissions)
 
 Cloudflare Workers support? It's in the works (pun intended).
+<!-- this is also git -->
 
 ## How to Install
 
