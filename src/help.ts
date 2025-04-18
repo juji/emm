@@ -47,7 +47,7 @@ export function showHelp() {
   const header = `
 ${chalk.bold('emm')} - ETL Memory Monitor
 
-// gem chooses a color
+# gem chooses a color
 ${chalk.blueBright(`
  ______ ______ ______
 |      |      |      |
