@@ -1,5 +1,3 @@
-
-
 export const chat = [
 `
          ______  __     __  ______  __     __   ______    
@@ -75,6 +73,83 @@ export const gem = [
     \`----'
 
    SPARKS <*> IGNITE
+`,
+`
+        _.--""--._
+       .'          \`.
+      /   O      O   \\
+     |    \\  ^^  /    |
+     \\     \`----'     /
+      \`. _______ .'
+        //_____\\\\
+       (( ____ ))
+        \`------'
+     _.-'  ||  \`-._
+    .'     ||     \`.
+   /______||______\\\\
+  |_______||_______|
+  \\       ||       /
+   \`.     ||     .'
+     \`._  ||  _.'
+        \`--""--'
+
+      //=========\\\\
+     ||  A.I. ?  ||
+     ||---------||
+     ||  LIVE  ? ||
+     \\\\=========//
+        \`-------'
+
+           /\\_/\\
+          ( o.o )
+          > ^ <   <--  THINKING...
+`,
+`
+       _.--""--._
+     .'          \`.
+    /   O      O   \\
+   |    \\  ^^  /    |
+   \\     \`----'     /
+    \`. _______ .'
+      //_____\\\\
+     (( ____ ))
+      \`------'
+   _.-'  ||  \`-._
+  .'     ||     \`.
+ /______||______\\\\
+|_______||_______|
+\\       ||       /
+ \`.     ||     .'
+   \`._  ||  _.'
+      \`--""--'
+
+     >>>>>  A.I.?  <<<<<
+    >>>>>  LIVE?  <<<<<
+
+          (⌐■_■)
+         / |   | \\
+        /  \`---'  \\
+       |___________|
 `
 ];
+
+export function pickRandom() {
+  // Get total length of all arrays without concatenating them
+  const chatLength = chat.length;
+  const copilotLength = copilot.length;
+  const gemLength = gem.length;
+  const totalLength = chatLength + copilotLength + gemLength;
+  
+  // Generate random index
+  const randomIndex = Math.floor(Math.random() * totalLength);
+  
+  // Determine which array the index falls into
+  if (randomIndex < chatLength) {
+    return chat[randomIndex];
+  } else if (randomIndex < chatLength + copilotLength) {
+    return copilot[randomIndex - chatLength];
+  } else {
+    return gem[randomIndex - chatLength - copilotLength];
+  }
+}
 

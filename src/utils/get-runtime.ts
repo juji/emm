@@ -19,6 +19,7 @@ export function getRuntime(): Runtime {
   // }
   // return 'unknown';
   // Default to Node.js if not Deno or Bun
-  console.log('Assuming Node.js runtime'); 
+  // console.log('Assuming Node.js runtime'); 
+  // it will just crash if not node
   return 'node';
 }
