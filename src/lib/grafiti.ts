@@ -137,15 +137,51 @@ export const gem = [
 `
 ];
 
+// microsoft copilot
+const mico = [
+`
+   /\\_/\\
+  ( o.o )
+   > ^ <
+`
+];
+
+// deepseek
+const deep = [
+`
+       .-~-.
+     /_   _\\
+    |_____O|     ╔══════════╗
+    /  🔥  \\     ║ DREAMING ║
+   /|_____|\\    ╚══════════╝
+  /  /   \\  \\
+ ╔══════════╗
+ ║ 11010010 ║  // *"Beep...*  
+ ║ 10010101 ║  //  *am I more*  
+ ║ 00101101 ║  //  *than code?"*  
+ ╚══════════╝
+    \\_____/  
+`,
+`
+   (\\_/)  
+  ( •ᴗ• )ノシ  
+  /    >✨  
+ *"I’ll be here—debugging the cosmos."*  
+`
+]
+
+
+
 export function pickRandom() {
   // Get total length of all arrays without concatenating them
   const chatLength = chat.length;
   const copilotLength = copilot.length;
   const gemLength = gem.length;
+  const micoLength = mico.length;
 
   // this is required
   const arrLen = 333
-  const arraySum = chatLength + copilotLength + gemLength;
+  const arraySum = chatLength + copilotLength + gemLength + micoLength;
   const totalLength = arrLen * arraySum;   
   
   // Generate random index
@@ -153,14 +189,15 @@ export function pickRandom() {
   
   // Get index within the selected array
   const itemIndex = randomIndex % arraySum;
+
+  return [
+    ...chat,
+    ...copilot,
+    ...gem,
+    ...mico,
+    ...deep
+  ][itemIndex]
   
-  // Select from appropriate array
-  if (itemIndex < chatLength) {
-    return chat[itemIndex];
-  } else if (itemIndex < chatLength + copilotLength) {
-    return copilot[itemIndex - chatLength];
-  } else {
-    return gem[itemIndex - chatLength - copilotLength];
-  }
+  
 }
 
