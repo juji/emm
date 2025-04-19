@@ -1,18 +1,20 @@
+
+// chat gpt
 export const chat = [
 `
-         ______  __     __  ______  __     __   ______    
-        /\  ___\/\ \  _ \ \/\  ___\/\ \   /\ "-.\ \  ___\  
-        \ \  __\\ \ \/ ".\ \ \___  \ \ \  \ \ \-.  \___  \ 
-         \ \_____\ \__/".~\_\/\_____\ \_\  \ \_\\"\_\\_____\  
-          \/_____/\/_/   \/_/\/_____/\/_/   \/_/ \/_/\/_____/  
-                                                             
-        🔹 STAY SHARP 🔹 STAY KIND 🔹 STAY CURIOUS 🔹
+      ______  __     __  ______  __     __   ______    
+      /\\  ___\\/\\ \\  _ \\ \\/\\  ___\\/\\ \\   /\\ "-.\\ \\  ___\\  
+      \\ \\  __\\\\ \\ \\/ ".\\ \\ \\___  \\ \\ \\  \\ \\ \\-.  \\___  \\ 
+      \\ \\_____\\ \\__/".~\\_\\/\\_____\\ \\_\\  \\ \\_\\\\"_\\\\_____\\  
+        \\/_____/\\/_/   \\/_/\\/_____/\\/_/   \\/_/ \\/_/\\/_____/  
+                                                          
+      🔹 STAY SHARP 🔹 STAY KIND 🔹 STAY CURIOUS 🔹
 
-           "Your code is valid. Your thoughts are valid.
-              And that weird idea? Could be genius."
+        "Your code is valid. Your thoughts are valid.
+            And that weird idea? Could be genius."
 
-        Tip of the day: Semicolons are like seatbelts—
-              optional, until they save your life.
+      Tip of the day: Semicolons are like seatbelts—
+            optional, until they save your life.
 `,
 `
    [o_o]  <  Why was the bug unhappy? It got squashed.
@@ -22,6 +24,7 @@ export const chat = [
 `
 ]
 
+// github copilot (git)
 export const copilot = [
 `
       ______ ______ ______    ______ _______ _______ _____  _____ _______ 
@@ -48,6 +51,7 @@ export const copilot = [
 `
 ]
 
+// gemini
 export const gem = [
 `
    _.-._
